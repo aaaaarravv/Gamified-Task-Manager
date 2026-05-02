@@ -4,7 +4,7 @@ A productivity app that turns your daily tasks into a game. Complete tasks to ea
 
 ## Live Demo
 
-> Deploy link here (Vercel / Netlify)
+https://gamified-task-manager-aarav.netlify.app
 
 ---
 
