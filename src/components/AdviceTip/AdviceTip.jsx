@@ -10,9 +10,8 @@ function AdviceTip() {
     setLoading(true)
     setError(false)
     try {
-      const res = await fetch('https://api.allorigins.win/get?url=https://api.adviceslip.com/advice')
-      const outer = await res.json()
-      const data = JSON.parse(outer.contents)
+      const res = await fetch(`/api/advice?t=${Date.now()}`)
+      const data = await res.json()
       setAdvice(data.slip.advice)
     } catch {
       setError(true)
