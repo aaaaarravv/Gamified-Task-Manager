@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import styles from './AdviceTip.module.css'
 
 function AdviceTip() {
@@ -11,10 +10,10 @@ function AdviceTip() {
     setLoading(true)
     setError(false)
     try {
-      const res = await axios.get('/api/advice', {
-        transformResponse: (data) => JSON.parse(data),
-      })
-      setAdvice(res.data.slip.advice)
+      const res = await fetch('https://api.allorigins.win/get?url=https://api.adviceslip.com/advice')
+      const outer = await res.json()
+      const data = JSON.parse(outer.contents)
+      setAdvice(data.slip.advice)
     } catch {
       setError(true)
     } finally {
