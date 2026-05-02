@@ -17,9 +17,9 @@ https://gamified-task-manager-aarav.netlify.app
 | Routing | React Router v7 |
 | State Management | Context API |
 | Styling | CSS Modules |
-| HTTP Client | Axios |
+| HTTP Client | Fetch API |
 | Persistence | localStorage |
-| Deployment | Vercel / Netlify |
+| Deployment | Netlify |
 
 ---
 
@@ -49,7 +49,8 @@ https://gamified-task-manager-aarav.netlify.app
 
 - Free, no API key required
 - Returns a random productivity/life advice tip
-- Called via Axios through a Vite dev proxy to handle CORS
+- Called via a Netlify serverless function (`netlify/functions/advice.js`) to handle CORS
+- Frontend calls `/api/advice` → Netlify function fetches from the API server-side and returns the response
 
 ---
 
@@ -73,6 +74,10 @@ src/
 ├── App.jsx                   # Routes + providers
 ├── main.jsx                  # Entry point
 └── index.css                 # CSS variables (light/dark theme)
+netlify/
+└── functions/
+    └── advice.js             # Serverless function — proxies Advice Slip API
+netlify.toml                  # Netlify build + functions config
 ```
 
 ---
